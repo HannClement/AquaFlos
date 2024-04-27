@@ -8,61 +8,69 @@ List<String> imgList = [
   'https://th.bing.com/th/id/OIP.5SXmLbT4j-oGi1nakw6dggHaEo?w=327&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'
 ];
 
+//Data Jenis Makanan Carousel
 List<String> namaCarouselRestaurant = [
   'Italian',
   'British',
   'Japanese'
 ];
 
-class cardItem {
+//Struct Data Menu
+class menu {
   final String urlImage;
   final String title;
   final String subtitle;
 
-  const cardItem({
+  const menu({
     required this.urlImage,
     required this.title,
     required this.subtitle
   });
 }
 
-List<cardItem> dataMenuRestaurant = [
-  cardItem(
+//Data Menu Most Popular
+List<menu> dataMenuPopular = [
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.B-Wi1mJOIJ0Qhixs7LtNbQHaE7?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Mirazur',
     subtitle: 'Menton, France',
   ),
-  cardItem(
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.X-c4h-3sFIVMaX8IjUiXHwHaE8?w=311&h=203&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Pujol',
     subtitle: 'Tennyson, Mexico',
   ),
-  cardItem(
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.c2ZMPXdCcMNTi1jD6ppu-QHaE3?w=311&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'White Rabbit',
     subtitle: 'Moscow, Russia',
   ),
-  cardItem(
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.xek42n6Yk2prbDHQc2E4sAHaE7?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Central',
     subtitle: 'Lima, Peru',
   ),
-  cardItem(
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.yp8uyHLy7H-4aHznDasWTgHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Attica',
     subtitle: 'Melbourne, Australia',
   ),
-  cardItem(
+  menu(
     urlImage:
       'https://th.bing.com/th/id/OIP.IMqAbRP-_FK9RaMOJHElRgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Alinea',
     subtitle: 'Chicago, United States',
   ),
+];
+
+//Data Menu Meal Deals
+List<menu> dataMealDeals = [
+
 ];
 
 void main() {
@@ -75,9 +83,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-  //Function create card  
-    Widget cardList({
-      required cardItem item,
+  //Function create menu slider
+    Widget sliderCardMenu({
+      required menu item,
     }) => 
     Container(
       width: 200,
@@ -87,7 +95,7 @@ class MainApp extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 4 / 3,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(40), // Menggunakan ClipRRect untuk sudut melengkung
+              borderRadius: BorderRadius.circular(40),
               child: Image.network(
                 item.urlImage,
                 fit: BoxFit.cover,
@@ -210,7 +218,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
 
-            //Title Most Popular
+            //Title Most Popular and See All
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
                 child: Row(
@@ -242,7 +250,7 @@ class MainApp extends StatelessWidget {
 
               SizedBox(height: 5.0),
 
-            //Listview
+            //Listview Most Popular
               Container(
                 height: 256,
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -251,7 +259,7 @@ class MainApp extends StatelessWidget {
                   shrinkWrap: true,
                   itemCount: 6,
                   separatorBuilder: (context, _) => SizedBox(width: 12),
-                  itemBuilder: (context, index) => cardList(item: dataMenuRestaurant[index]),
+                  itemBuilder: (context, index) => sliderCardMenu(item: dataMenuPopular[index]),
                 ),
               ),
 
@@ -271,6 +279,19 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
               ),
+
+          //listview Meal Deals
+            // Container(
+            //     height: 256,
+            //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            //     child: ListView.separated(
+            //       scrollDirection: Axis.horizontal,
+            //       shrinkWrap: true,
+            //       itemCount: 6,
+            //       separatorBuilder: (context, _) => SizedBox(width: 12),
+            //       itemBuilder: (context, index) => cardList(item: dataMenuRestaurant[index]),
+            //     ),
+            //   ),
 
             ],
           ),
