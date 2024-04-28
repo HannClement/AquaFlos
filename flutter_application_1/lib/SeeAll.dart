@@ -7,11 +7,24 @@ class SeeAll extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('See All'),
-        leading: IconButton(
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            'See All',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25.0,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        leading: Padding(
+        padding: const EdgeInsets.only(top: 10.0),
+        child: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
         ),
+      ),
       ),
       body: mySeeAll(data: data,),
     );
