@@ -256,7 +256,7 @@ class homePage extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 10.0,),
+              SizedBox(height: 10.0),
 
             //Carousel
               Container(
