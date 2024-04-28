@@ -4,9 +4,9 @@ import 'SeeAll.dart';
 
 //String tersebut berisi link image dari carousel
 List<String> imgList = [
-  'https://th.bing.com/th/id/OIP.Bt75VLJFe5MSrHOZNGt9qwHaEK?w=327&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-  'https://th.bing.com/th/id/OIP.dZBs9Tn3DBWx9Shq3gzcIwHaE8?w=327&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-  'https://th.bing.com/th/id/OIP.5SXmLbT4j-oGi1nakw6dggHaEo?w=327&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7'
+  'assets/images/italianCarousel.jpeg',
+  'assets/images/englandCarousel.jpeg',
+  'assets/images/japanCarousel.jpeg'
 ];
 
 //Data Jenis Makanan Carousel
@@ -33,37 +33,37 @@ class menu {
 List<menu> dataMenuPopular = [
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.azXUj_n9nBZlhjrVXgIQygHaE1?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/mirazur.jpeg',
     title: 'Mirazur',
     subtitle: 'Menton, France',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.X-c4h-3sFIVMaX8IjUiXHwHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/pujol.jpeg',
     title: 'Pujol',
     subtitle: 'Tennyson, Mexico',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.c2ZMPXdCcMNTi1jD6ppu-QHaE3?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/whiteRabbit.jpeg',
     title: 'White Rabbit',
     subtitle: 'Moscow, Russia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.xek42n6Yk2prbDHQc2E4sAHaE7?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/central.jpeg',
     title: 'Central',
     subtitle: 'Lima, Peru',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.yp8uyHLy7H-4aHznDasWTgHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/attica.jpeg',
     title: 'Attica',
     subtitle: 'Melbourne, Australia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.IMqAbRP-_FK9RaMOJHElRgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/alinea.jpeg',
     title: 'Alinea',
     subtitle: 'Chicago, United States',
   ),
@@ -73,37 +73,37 @@ List<menu> dataMenuPopular = [
 List<menu> dataMealDeals = [
 menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.bwf5iftFdSS6HfngzcU_vQHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/tofu.jpeg',
     title: 'Tofu',
     subtitle: 'Surabaya, Indonesia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.XMowjPBCSyY8yiycMY6d5wHaD9?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
-    title: 'Pujol',
+      'assets/images/crabs.jpeg',
+    title: 'Crabs',
     subtitle: 'Madiun, Indonesia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.pz_B3B89SUTYXcKTfeR-KgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/grilledSalmon.jpeg',
     title: 'Grilled Salmon',
     subtitle: 'Jakarta, Indonesia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.y0nps59XR5D_ctkS03HADwHaEK?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/frenchFries.jpeg',
     title: 'French Fries',
     subtitle: 'Semarang, Indonesia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.TeJ6OfdNMmmNxaeD4A3jKgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/porkRibs.jpeg',
     title: 'Pork Ribs',
     subtitle: 'Bali, Indonesia',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.zcssATdVGTuuHiDI4T-4aAHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'assets/images/lambsChops.jpeg',
     title: 'Lamb Chops',
     subtitle: 'Samarinda, Indonesia',
   ),
@@ -216,7 +216,7 @@ class homePage extends StatelessWidget {
             aspectRatio: 4 / 3,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40),
-              child: Image.network(
+              child: Image.asset(
                 item.urlImage,
                 fit: BoxFit.cover,
               ),
@@ -284,7 +284,7 @@ class homePage extends StatelessWidget {
                             borderRadius: BorderRadius.all(Radius.circular(5.0)),
                             child: Stack(
                               children: <Widget>[
-                                Image.network(item, fit: BoxFit.fill),
+                                Image.asset(item, fit: BoxFit.fill),
                                 Positioned(
                                   bottom: 0.0,
                                   left: 0.0,
