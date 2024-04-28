@@ -5,11 +5,15 @@ class SeeAll extends StatelessWidget {
   const SeeAll({Key? key, required this.data}) : super(key: key);
 
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: mySeeAll(
-        data: data
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('See All'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
+      body: mySeeAll(data: data,),
     );
   }
 }
@@ -29,15 +33,7 @@ class mySeeAllState extends State<mySeeAll> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('See All'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: Column(
+    return Column(
         children: [
           Expanded(
             child: ListView.builder(
@@ -58,7 +54,6 @@ class mySeeAllState extends State<mySeeAll> {
             ),
           ),
         ],
-      ),
-    );
+      );
   }
 }

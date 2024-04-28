@@ -153,7 +153,7 @@ class myMainState extends State<myMain> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
         centerTitle: true,
         title: Padding(
           padding: const EdgeInsets.only(top: 10.0),
@@ -193,7 +193,7 @@ class myMainState extends State<myMain> {
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blueAccent,
-        unselectedItemColor: Colors.red,
+        unselectedItemColor: Colors.blueGrey,
         onTap: _onItemTapped,
       ),
     );
