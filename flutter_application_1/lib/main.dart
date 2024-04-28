@@ -118,6 +118,7 @@ class MainApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Flos Aquae',
       debugShowCheckedModeBanner: false,
       home: myMain(),
     );
@@ -132,10 +133,77 @@ class myMain extends StatefulWidget {
 
 class myMainState extends State<myMain> {
   int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  final List<Widget> contentPages = [
+    homePage(),
+    discoveryPage(),
+    bookmarkPage(),
+    topFoodiePage(),
+    profilePage()
+  ];
+
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            'Flos Aquae',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+      body: contentPages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_city),
+            label: "Discovery",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark),
+            label: "Bookmark",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.emoji_events),
+            label: "Top Foodie",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.red,
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
 
-  //Function create menu slider
+class homePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //Function create menu slider
     Widget sliderCardMenu({
       required menu item,
     }) => 
@@ -168,26 +236,7 @@ class myMainState extends State<myMain> {
       ),
     );
 
-    return MaterialApp(
-      title: "Flos Aquae",
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: Padding(
-            padding: const EdgeInsets.only(top: 10.0),
-            child: Text(
-              'Flos Aquae',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30.0,
-                color: Colors.black
-              ),
-            ),
-          ),
-        ),
-        body: SingleChildScrollView(
+    return SingleChildScrollView(
           child: Column(
             children: [
               
@@ -374,45 +423,45 @@ class myMainState extends State<myMain> {
                   itemBuilder: (context, index) => sliderCardMenu(item: dataMealDeals[index]),
                 ),
               ),
-
             ],
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home"
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.location_city),
-              label: "Discovery"
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark),
-              label: "Bookmark"
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.emoji_events),
-              label: "Top Foodie"
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile"
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blueAccent,
-          unselectedItemColor: Colors.red,
-          onTap: _onItemTapped,
-        ),
-      ),
-    );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+      );
   }
 }
+
+class discoveryPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Discovery Page'),
+    );
+  }
+}
+
+class bookmarkPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Bookmark Page'),
+    );
+  }
+}
+
+class topFoodiePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Top Foodie Page'),
+    );
+  }
+}
+
+class profilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Profile Page'),
+    );
+  }
+}
+
