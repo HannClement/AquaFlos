@@ -53,7 +53,7 @@ class mySeeAllState extends State<mySeeAll> {
             itemCount: widget.data.length,
             itemBuilder: (context, index) {
               return Container(
-                height: 60,
+                height: 70,
                 child: ListTile(
                   contentPadding: EdgeInsets.symmetric(horizontal: 40),
                   leading: ClipRRect(
