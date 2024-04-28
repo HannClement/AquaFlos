@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'seeAllPages.dart';
+import 'SeeAll.dart';
 
 //String tersebut berisi link image dari carousel
 List<String> imgList = [
@@ -116,6 +116,22 @@ void main() {
 class MainApp extends StatelessWidget {
   const MainApp({Key? key}) : super(key: key);
 
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: myMain(),
+    );
+  }
+}
+
+class myMain extends StatefulWidget {
+
+  @override
+  State<myMain> createState() => myMainState();
+}
+
+class myMainState extends State<myMain> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
 
@@ -124,7 +140,7 @@ class MainApp extends StatelessWidget {
       required menu item,
     }) => 
     Container(
-      width: 200,
+      width: 185,
       child: Column(
         children: [
           Expanded(
@@ -142,11 +158,11 @@ class MainApp extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           item.title,
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
           ),
         Text(
           item.subtitle,
-          style: TextStyle(fontSize: 18, color: Colors.black),
+          style: TextStyle(fontSize: 16, color: Colors.black),
           ),
         ],
       ),
@@ -274,7 +290,9 @@ class MainApp extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => seeAllPages()),
+                          MaterialPageRoute(
+                            builder: (context) => SeeAll(data: dataMenuPopular),
+                          ),
                         );
                       },
                       child: Text(
@@ -286,6 +304,7 @@ class MainApp extends StatelessWidget {
                         ),
                       ),
                     ),
+
                   ],
                 ),
               ),
@@ -294,7 +313,7 @@ class MainApp extends StatelessWidget {
 
             //Listview Most Popular
               Container(
-                height: 256,
+                height: 180,
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
@@ -308,24 +327,45 @@ class MainApp extends StatelessWidget {
               SizedBox(height: 5.0),
 
             //Title Meal Deals
-              Align(
-                alignment: Alignment.centerLeft, // Menyusun teks ke kiri
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 15.0, left: 25.0), // Menambahkan padding hanya di atas dan kiri
-                  child: Text(
-                    "Meal Deals",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Meal Deals",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),
                     ),
-                  ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SeeAll(data: dataMealDeals),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                          color: Colors.greenAccent,
+                        ),
+                      ),
+                    ),
+
+                  ],
                 ),
               ),
 
           //listview Meal Deals
             Container(
-                height: 256,
-                padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                height: 180,
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -339,32 +379,40 @@ class MainApp extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          items: [
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              label: "Home",
               icon: Icon(Icons.home),
+              label: "Home"
             ),
             BottomNavigationBarItem(
-              label: "Discovery",
               icon: Icon(Icons.location_city),
+              label: "Discovery"
             ),
             BottomNavigationBarItem(
-              label: "Bookmark",
               icon: Icon(Icons.bookmark),
+              label: "Bookmark"
             ),
             BottomNavigationBarItem(
-              label: "Top Foodie",
               icon: Icon(Icons.emoji_events),
+              label: "Top Foodie"
             ),
             BottomNavigationBarItem(
-              label: "Profile",
               icon: Icon(Icons.person),
+              label: "Profile"
             ),
           ],
+          currentIndex: _selectedIndex,
           selectedItemColor: Colors.blueAccent,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: Colors.red,
+          onTap: _onItemTapped,
         ),
       ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 }
