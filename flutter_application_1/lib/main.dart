@@ -118,7 +118,7 @@ class MainApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flos Aquae',
+      title: 'Aqua Flos',
       debugShowCheckedModeBanner: false,
       home: myMain(),
     );
@@ -158,7 +158,7 @@ class myMainState extends State<myMain> {
         title: Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: Text(
-            'Flos Aquae',
+            'Aqua Flos',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 30.0,
