@@ -349,7 +349,7 @@ class homePage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
-                          color: Colors.lightGreenAccent,
+                          color: Colors.green,
                         ),
                       ),
                     ),
@@ -401,7 +401,7 @@ class homePage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
-                          color: Colors.greenAccent,
+                          color: Colors.green,
                         ),
                       ),
                     ),
@@ -486,4 +486,3 @@ class profilePage extends StatelessWidget {
     );
   }
 }
-
