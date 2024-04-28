@@ -349,11 +349,10 @@ class homePage extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
-                          color: Colors.greenAccent,
+                          color: Colors.lightGreenAccent,
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -406,7 +405,6 @@ class homePage extends StatelessWidget {
                         ),
                       ),
                     ),
-
                   ],
                 ),
               ),
