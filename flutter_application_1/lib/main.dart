@@ -433,7 +433,13 @@ class discoveryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Discovery Page'),
+      child: Text('Discovery Page',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0,
+          color: Colors.red
+        ),
+      ),
     );
   }
 }
@@ -442,7 +448,13 @@ class bookmarkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Bookmark Page'),
+      child: Text('Bookmark Page',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0,
+          color: Colors.red
+        ),
+      ),
     );
   }
 }
@@ -451,7 +463,13 @@ class topFoodiePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Top Foodie Page'),
+      child: Text('Top Foodie Page',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0,
+          color: Colors.red
+        ),
+      ),
     );
   }
 }
@@ -460,7 +478,13 @@ class profilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Profile Page'),
+      child: Text('Profile Page',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 30.0,
+          color: Colors.red
+        ),
+      ),
     );
   }
 }

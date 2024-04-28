@@ -47,26 +47,33 @@ class mySeeAllState extends State<mySeeAll> {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: widget.data.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 90,
-                  alignment: Alignment.center,
-                  color: Colors.transparent,
-                  child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 40),
-                    title: Text(widget.data[index].title),
-                    subtitle: Text(widget.data[index].subtitle),
-                    leading: Image.network(widget.data[index].urlImage),
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: widget.data.length,
+            itemBuilder: (context, index) {
+              return Container(
+                height: 70,
+                alignment: Alignment.center,
+                color: Colors.transparent,
+                child: ListTile(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 40),
+                  title: Text(widget.data[index].title),
+                  subtitle: Text(widget.data[index].subtitle),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(widget.data[index].urlImage,
+                      fit: BoxFit.cover,
+                      width: 100,
+                      height: 100,
+                    ),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
-        ],
-      );
+        ),
+      ],
+    );
   }
 }
