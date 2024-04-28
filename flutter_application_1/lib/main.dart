@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'seeAllPages.dart';
 
 //String tersebut berisi link image dari carousel
 List<String> imgList = [
@@ -32,19 +33,19 @@ class menu {
 List<menu> dataMenuPopular = [
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.B-Wi1mJOIJ0Qhixs7LtNbQHaE7?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'https://th.bing.com/th/id/OIP.azXUj_n9nBZlhjrVXgIQygHaE1?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Mirazur',
     subtitle: 'Menton, France',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.X-c4h-3sFIVMaX8IjUiXHwHaE8?w=311&h=203&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'https://th.bing.com/th/id/OIP.X-c4h-3sFIVMaX8IjUiXHwHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'Pujol',
     subtitle: 'Tennyson, Mexico',
   ),
   menu(
     urlImage:
-      'https://th.bing.com/th/id/OIP.c2ZMPXdCcMNTi1jD6ppu-QHaE3?w=311&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+      'https://th.bing.com/th/id/OIP.c2ZMPXdCcMNTi1jD6ppu-QHaE3?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
     title: 'White Rabbit',
     subtitle: 'Moscow, Russia',
   ),
@@ -70,7 +71,42 @@ List<menu> dataMenuPopular = [
 
 //Data Menu Meal Deals
 List<menu> dataMealDeals = [
-
+menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.bwf5iftFdSS6HfngzcU_vQHaE8?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Tofu',
+    subtitle: 'Surabaya, Indonesia',
+  ),
+  menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.XMowjPBCSyY8yiycMY6d5wHaD9?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Pujol',
+    subtitle: 'Madiun, Indonesia',
+  ),
+  menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.pz_B3B89SUTYXcKTfeR-KgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Grilled Salmon',
+    subtitle: 'Jakarta, Indonesia',
+  ),
+  menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.y0nps59XR5D_ctkS03HADwHaEK?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'French Fries',
+    subtitle: 'Semarang, Indonesia',
+  ),
+  menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.TeJ6OfdNMmmNxaeD4A3jKgHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Pork Ribs',
+    subtitle: 'Bali, Indonesia',
+  ),
+  menu(
+    urlImage:
+      'https://th.bing.com/th/id/OIP.zcssATdVGTuuHiDI4T-4aAHaHa?w=311&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7',
+    title: 'Lamb Chops',
+    subtitle: 'Samarinda, Indonesia',
+  ),
 ];
 
 void main() {
@@ -119,7 +155,9 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: "Flos Aquae",
       home: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          backgroundColor: Colors.white,
           centerTitle: true,
           title: Padding(
             padding: const EdgeInsets.only(top: 10.0),
@@ -128,6 +166,7 @@ class MainApp extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 30.0,
+                color: Colors.black
               ),
             ),
           ),
@@ -233,7 +272,10 @@ class MainApp extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => seeAllPages()),
+                        );
                       },
                       child: Text(
                         "See All",
@@ -281,17 +323,17 @@ class MainApp extends StatelessWidget {
               ),
 
           //listview Meal Deals
-            // Container(
-            //     height: 256,
-            //     padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            //     child: ListView.separated(
-            //       scrollDirection: Axis.horizontal,
-            //       shrinkWrap: true,
-            //       itemCount: 6,
-            //       separatorBuilder: (context, _) => SizedBox(width: 12),
-            //       itemBuilder: (context, index) => cardList(item: dataMenuRestaurant[index]),
-            //     ),
-            //   ),
+            Container(
+                height: 256,
+                padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: 6,
+                  separatorBuilder: (context, _) => SizedBox(width: 12),
+                  itemBuilder: (context, index) => sliderCardMenu(item: dataMealDeals[index]),
+                ),
+              ),
 
             ],
           ),
